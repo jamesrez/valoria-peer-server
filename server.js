@@ -16,14 +16,16 @@ const startPeerServer = () => {
   });
   app.use('/peerjs', peerServer);
   peerServer.on('disconnect', (client) => {
-    console.log(client)
     let username = data.peers[client.id];
+    console.log(username)
     if(data.users[username]){
       let currentDimension = data.users[username].currentDimension;
       delete data.dimensions[currentDimension].peers[username][client.id];
       delete data.users[username].peers[client.id];
+      console.log("deleting");
     }
     delete data.peers[client.id];
+    console.log(data.peers[client.id]);
     saveData();
   });
 
