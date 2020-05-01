@@ -16,7 +16,7 @@ const startPeerServer = () => {
   });
   app.use('/peerjs', peerServer);
   peerServer.on('disconnect', (client) => {
-    console.log(data.peers);
+    console.log(data);
     console.log(client.id);
     let username = data.peers[client.id];
     if(data.users[username]){
