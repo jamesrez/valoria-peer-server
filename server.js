@@ -16,6 +16,7 @@ const startPeerServer = () => {
   });
   app.use('/peerjs', peerServer);
   peerServer.on('disconnect', (client) => {
+    console.log(client)
     let username = data.peers[client.id];
     if(data.users[username]){
       let currentDimension = data.users[username].currentDimension;
