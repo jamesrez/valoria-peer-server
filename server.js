@@ -16,16 +16,18 @@ const startPeerServer = () => {
   });
   app.use('/peerjs', peerServer);
   peerServer.on('disconnect', (client) => {
-    console.log(data);
-    console.log(client.id);
-    let username = data.peers[client.id];
-    if(data.users[username]){
-      let currentDimension = data.users[username].currentDimension;
-      delete data.dimensions[currentDimension].peers[username][client.id];
-      delete data.users[username].peers[client.id];
-    }
-    delete data.peers[client.id];
-    saveData();
+    s3.getObject({Bucket : "valoria", Key : "data.json"}, function(err, fileData) {
+      if(err) return;
+      data = JSON.parse(fileData.Body.toString());
+      let username = data.peers[client.id];
+      if(data.users[username]){
+        let currentDimension = data.users[username].currentDimension;
+        delete data.dimensions[currentDimension].peers[username][client.id];
+        delete data.users[username].peers[client.id];
+      }
+      delete data.peers[client.id];
+      saveData();
+    })
   });
 
 }
