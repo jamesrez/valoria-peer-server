@@ -2,5 +2,5 @@
   "name": "Valorian Peer Server",
   "description": "Use this for Valorian Signaling with Peerjs",
   "repository": "https://github.com/JamieRez/valoria-peer-server,
-  "keywords": ["node", "decentralized", "data", "valoria", "server", "peerjs", "signaling"],
+  "keywords": ["node", "decentralized", "data", "valoria", "server", "peerjs", "signaling"]
 }
