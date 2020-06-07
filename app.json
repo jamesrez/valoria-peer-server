@@ -1,0 +1,6 @@
+{
+  "name": "Valoria Server",
+  "description": "Save the world!",
+  "repository": "https://github.com/JamieRez/valoria-server",
+  "keywords": ["node", "decentralized", "data", "valoria", "server", "peerjs", "signaling"],
+}
